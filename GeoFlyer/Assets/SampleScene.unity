@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blimpPrefab: {fileID: 2491678240145379390, guid: a12da3317a5cc8b4ba857f20338375a1,
     type: 3}
-  respawnTime: 3
+  respawnTime: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
