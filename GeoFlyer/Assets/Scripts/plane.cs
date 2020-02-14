@@ -6,22 +6,22 @@ using UnityEngine.SceneManagement;
 public class plane : MonoBehaviour
 {
     public GameObject explosion;
+    public GameObject explosiondetector;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("hit detected");
+        
         GameObject e = Instantiate(explosion) as GameObject;
         e.transform.position = transform.position;
         Destroy(other.gameObject);
         transform.position = new Vector3(0, -20, 0);
+        explosiondetector.SetActive(false);
 
         StartCoroutine(ExecuteAfterTime(3));
         
     }
     IEnumerator ExecuteAfterTime(float time)
     {
-        Debug.Log(time);
         yield return new WaitForSeconds(time);
-        Debug.Log("Success!");
         this.gameObject.SetActive(false);
         SceneManager.LoadScene("SampleScene");
     }

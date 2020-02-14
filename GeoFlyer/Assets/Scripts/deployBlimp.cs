@@ -5,6 +5,7 @@ using UnityEngine;
 public class deployBlimp : MonoBehaviour
 {
     public GameObject blimpPrefab;
+    public GameObject pigPrefab;
     public float respawnTime = 1.0f;
     private Vector2 screenBounds;
     
@@ -14,10 +15,15 @@ public class deployBlimp : MonoBehaviour
         StartCoroutine(blimpWave());
     }
 
-    private void spawnEnemy()
+    private void spawnBlimp()
     {
         GameObject a = Instantiate(blimpPrefab) as GameObject;
         a.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x) , screenBounds.y * 2);
+    }
+    private void spawnPig()
+    {
+        GameObject b = Instantiate(pigPrefab) as GameObject;
+        b.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y * 2);
     }
 
     IEnumerator blimpWave()
@@ -25,7 +31,16 @@ public class deployBlimp : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(respawnTime);
-            spawnEnemy();
+            int num = Random.Range(0, 2);
+            
+            if (num == 1)
+            {
+                spawnBlimp();
+            }
+            if(num == 0)
+            {
+                spawnPig();
+            }
         }
     }
 
