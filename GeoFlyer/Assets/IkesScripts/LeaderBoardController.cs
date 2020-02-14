@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LeaderBoardController : MonoBehaviour
 {
@@ -58,6 +59,15 @@ public class LeaderBoardController : MonoBehaviour
         O2 = GameObject.Find("O2");
         O3 = GameObject.Find("O3");
 
-        column1 = new List<GameObject> { A1,B1,C1,D1,E1,F1,G1,H1,I1,J1,K1,L1,M1,N1,O1}
+        column1 = new List<GameObject> { A1, B1, C1, D1, E1, F1, G1, H1, I1, J1, K1, L1, M1, N1, O1 };
+        column2 = new List<GameObject> { A2, B2, C2, D2, E2, F2, G2, H2, I2, J2, K2, L2, M2, N2, O2 };
+        column3 = new List<GameObject> { A3, B3, C3, D3, E3, F3, G3, H3, I3, J3, K3, L3, M3, N3, O3 };
+
+        for (int i = 0; i < column1.Count; i++)
+        {
+            column1[i].GetComponent<Text>().text = (i + 1).ToString();
+        }
+
+        
     }
 }
