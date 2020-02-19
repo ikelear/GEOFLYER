@@ -11,6 +11,9 @@ public class LeaderBoardController : MonoBehaviour
     List<GameObject> column2 = new List<GameObject>();
     List<GameObject> column3 = new List<GameObject>();
 
+
+    List<int> highscores = new List<int>();
+
     private void Awake()
     {
         A1 = GameObject.Find("A1");
@@ -63,11 +66,21 @@ public class LeaderBoardController : MonoBehaviour
         column2 = new List<GameObject> { A2, B2, C2, D2, E2, F2, G2, H2, I2, J2, K2, L2, M2, N2, O2 };
         column3 = new List<GameObject> { A3, B3, C3, D3, E3, F3, G3, H3, I3, J3, K3, L3, M3, N3, O3 };
 
+        highscores = GlobalController.Instance.localHighScores;
+
         for (int i = 0; i < column1.Count; i++)
         {
             column1[i].GetComponent<Text>().text = (i + 1).ToString();
         }
 
+        for (int i = 0; i < column3.Count; i++)
+        {
+            column3[i].GetComponent<Text>().text = highscores[i].ToString();
+        }
+
+        Debug.Log(GlobalController.Instance.localHighScores[0]);
         
     }
+
+    
 }

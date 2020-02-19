@@ -15,7 +15,7 @@ public class TestGameController : MonoBehaviour
         {
             score = Random.Range(0, 100);
             GlobalController.Instance.playerScore = score;
-            GlobalController.Instance.playerScore = 1;
+            GlobalController.Instance.newScore = true;
             Debug.Log(score);
             SceneManager.LoadScene(sceneName: "StartMenu");
         }

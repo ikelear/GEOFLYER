@@ -203,6 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1498845326}
+  - component: {fileID: 1498845327}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -224,6 +225,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1498845327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498845325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7e64263faccbe43ad2d3f281c28ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2096411386
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +266,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1be758a77e43154d9efac82053fa616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScore: 0
+  newScore: 0
+  highScore1: 0
+  highScore2: 0
+  highScore3: 0
+  highScore4: 0
+  highScore5: 0
+  highScore6: 0
+  highScore7: 0
+  highScore8: 0
+  highScore9: 0
+  highScore10: 0
+  highScore11: 0
+  highScore12: 0
+  highScore13: 0
+  highScore14: 0
+  highScore15: 0
+  localHighScores: 
 --- !u!4 &2096411388
 Transform:
   m_ObjectHideFlags: 0
