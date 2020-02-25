@@ -16,6 +16,9 @@ public class GlobalController : MonoBehaviour
 
     void Awake()
     {
+
+        localHighScores = new List<int> { highScore1, highScore2, highScore3, highScore4, highScore5, highScore6, highScore7, highScore8, highScore9, highScore10, highScore11, highScore12, highScore13, highScore14, highScore15 };
+
         if (Instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -26,21 +29,18 @@ public class GlobalController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        localHighScores = new List<int> { highScore1, highScore2, highScore3, highScore4, highScore5, highScore6, highScore7, highScore8, highScore9, highScore10, highScore11, highScore12, highScore13, highScore14, highScore15 };
 
                 
     }
 
     private void Update()
     {
-        Debug.Log(newScore);
         if (newScore == true)
         {
             for (int i = 0; i < localHighScores.Count; i++)
             {
                 if (playerScore > localHighScores[i])
                 {
-                    Debug.Log(localHighScores[i]);
                     int spot = i;
                     int oldScore = localHighScores[i];
                     localHighScores[i] = playerScore;
@@ -56,6 +56,7 @@ public class GlobalController : MonoBehaviour
                 }
                 else if (playerScore == localHighScores[i])
                 {
+                    Debug.Log("Else if called");
                     int spot1 = i;
                     for (int a = spot1; a < localHighScores.Count - spot1; a++)
                     {

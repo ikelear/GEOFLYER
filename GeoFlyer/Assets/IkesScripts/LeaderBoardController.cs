@@ -51,7 +51,7 @@ public class LeaderBoardController : MonoBehaviour
         K3 = GameObject.Find("K3");
         L1 = GameObject.Find("L1");
         L2 = GameObject.Find("L2");
-        L3 = GameObject.Find("K3");
+        L3 = GameObject.Find("L3");
         M1 = GameObject.Find("M1");
         M2 = GameObject.Find("M2");
         M3 = GameObject.Find("M3");
