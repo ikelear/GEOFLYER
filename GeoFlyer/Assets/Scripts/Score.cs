@@ -8,8 +8,9 @@ public class Score : MonoBehaviour
     public GameObject explosiondetector;
     public Text txt;
     float meterscore;
-    float kmscore;
+    public float kmscore;
     float pointIncreasePerSecond;
+    
     
     void Start()
     {
@@ -26,6 +27,7 @@ public class Score : MonoBehaviour
             meterscore += pointIncreasePerSecond * Time.deltaTime;
             kmscore = meterscore / 1000.0f;
             txt.text = kmscore.ToString();
+            
         }
         
         

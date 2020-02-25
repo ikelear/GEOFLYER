@@ -33,14 +33,14 @@ public class GlobalController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(newScore);
+        //Debug.Log(newScore);
         if (newScore == true)
         {
             for (int i = 0; i < localHighScores.Count; i++)
             {
                 if (playerScore > localHighScores[i])
                 {
-                    Debug.Log(localHighScores[i]);
+                    //Debug.Log(localHighScores[i]);
                     int spot = i;
                     int oldScore = localHighScores[i];
                     localHighScores[i] = playerScore;

@@ -11,14 +11,34 @@ public class plane : MonoBehaviour
     public GameObject coin;
     public Text txt;
     float money;
+    public DeathMenu deathMenu;
+
+    
+    public Text txt2;
+    float meterscore;
+    public float kmscore;
+    float pointIncreasePerSecond;
+
 
     private void Start()
     {
         money = 0f;
         txt.text = money.ToString();
+        meterscore = 0f;
+        kmscore = 0f;
+        pointIncreasePerSecond = 200.0f;
     }
 
+    private void Update()
+    {
+        if (explosiondetector.activeSelf)
+        {
+            meterscore += pointIncreasePerSecond * Time.deltaTime;
+            kmscore = meterscore / 1000.0f;
+            txt2.text = kmscore.ToString();
 
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.transform.tag == "enemy")
@@ -28,8 +48,9 @@ public class plane : MonoBehaviour
             Destroy(other.gameObject);
             transform.position = new Vector3(0, -20, 0);
             explosiondetector.SetActive(false);
+            deathMenu.ToggleEndMenu(kmscore);
 
-            StartCoroutine(ExecuteAfterTime(3));
+            //StartCoroutine(ExecuteAfterTime(3));
         }
         if(other.transform.tag == "coin")
         {
@@ -41,10 +62,13 @@ public class plane : MonoBehaviour
 
 
     }
-    IEnumerator ExecuteAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        this.gameObject.SetActive(false);
-        SceneManager.LoadScene("SampleScene");
-    }
+    //IEnumerator ExecuteAfterTime(float time)
+    //{
+    //    yield return new WaitForSeconds(time);
+    //    this.gameObject.SetActive(false);
+    //    SceneManager.LoadScene("SampleScene");
+    //}
+
+    //ctrl k to comment lots of code
+    //ctrl u to uncomment
 }
