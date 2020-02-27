@@ -9,15 +9,15 @@ public class GlobalController : MonoBehaviour
 
     public static GlobalController Instance;
 
-    public int playerScore;
+    public float playerScore = -1f;
     public bool newScore = false;
-    public int highScore1 = 0, highScore2 = 0, highScore3 = 0, highScore4 = 0, highScore5 = 0, highScore6 = 0, highScore7 = 0, highScore8 = 0, highScore9 = 0, highScore10 = 0, highScore11 = 0, highScore12 = 0, highScore13 = 0, highScore14 = 0, highScore15 = 0;
-    public List<int> localHighScores = new List<int>();
+    public float highScore1 = 0, highScore2 = 0, highScore3 = 0, highScore4 = 0, highScore5 = 0, highScore6 = 0, highScore7 = 0, highScore8 = 0, highScore9 = 0, highScore10 = 0, highScore11 = 0, highScore12 = 0, highScore13 = 0, highScore14 = 0, highScore15 = 0;
+    public List<float> localHighScores = new List<float>();
 
     void Awake()
     {
 
-        localHighScores = new List<int> { highScore1, highScore2, highScore3, highScore4, highScore5, highScore6, highScore7, highScore8, highScore9, highScore10, highScore11, highScore12, highScore13, highScore14, highScore15 };
+        localHighScores = new List<float> { highScore1, highScore2, highScore3, highScore4, highScore5, highScore6, highScore7, highScore8, highScore9, highScore10, highScore11, highScore12, highScore13, highScore14, highScore15 };
 
         if (Instance == null)
         {
@@ -35,38 +35,57 @@ public class GlobalController : MonoBehaviour
 
     private void Update()
     {
-        if (newScore == true)
+        /*if (newScore == true)
         {
+            Debug.Log("NEW SCORE LOOP");
             for (int i = 0; i < localHighScores.Count; i++)
             {
                 if (playerScore > localHighScores[i])
                 {
-                    int spot = i;
-                    int oldScore = localHighScores[i];
+                    Debug.Log("OH THAT NUMBER BIG");
+                    float oldScore = localHighScores[i];
                     localHighScores[i] = playerScore;
 
-                    for (int a = spot; a < localHighScores.Count - spot; a++)
+                    for (int a = i; a < localHighScores.Count - i; a++)
                     {
-                        int nextSpot = localHighScores[a+1];
+                        float olderScore = localHighScores[a+1];
                         localHighScores[a + 1] = oldScore;
-                        oldScore = nextSpot;
+                        oldScore = olderScore;
                     }
                     newScore = false;
                     break;
                 }
-                else if (playerScore == localHighScores[i])
-                {
-                    Debug.Log("Else if called");
-                    int spot1 = i;
-                    for (int a = spot1; a < localHighScores.Count - spot1; a++)
-                    {
-                        int nextSpot = localHighScores[a + 1];
-                        localHighScores[a + 1] = playerScore;
-                        playerScore = nextSpot;
-                    }
-                }
+                
+              
             }
             newScore = false;
+            
+        }/*/
+    }
+
+    public void NewHighScore(float playerScore)
+    {
+        Debug.Log("NEW SCORE LOOP");
+        for (int i = 0; i < localHighScores.Count; i++)
+        {
+            if (playerScore > localHighScores[i])
+            {
+                Debug.Log("OH THAT NUMBER BIG");
+                float oldScore = localHighScores[i];
+                localHighScores[i] = playerScore;
+
+                for (int a = i; a < localHighScores.Count - i; a++)
+                {
+                    float olderScore = localHighScores[a + 1];
+                    localHighScores[a + 1] = oldScore;
+                    oldScore = olderScore;
+                }
+                //newScore = false;
+                break;
+            }
+
+
         }
+        //newScore = false;
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TestGameController : MonoBehaviour
 {
 
-    int score;
+    float score;
 
     private void Update()
     {
@@ -15,9 +15,10 @@ public class TestGameController : MonoBehaviour
         {
             score = Random.Range(0, 100);
             GlobalController.Instance.playerScore = score;
-            GlobalController.Instance.newScore = true;
+            //GlobalController.Instance.newScore = true;
             Debug.Log("Score is: " + score);
             SceneManager.LoadScene(sceneName: "StartMenu");
+            GlobalController.Instance.NewHighScore(score);
         }
         
     }
