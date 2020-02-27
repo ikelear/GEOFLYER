@@ -31,4 +31,8 @@ public class DeathMenu : MonoBehaviour
     {
         SceneManager.LoadScene("StartMenu");
     }
+    public void ToUpgrade()
+    {
+        SceneManager.LoadScene("UpgradeMenu");
+    }
 }

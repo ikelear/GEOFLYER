@@ -22,7 +22,7 @@ public class plane : MonoBehaviour
 
     private void Start()
     {
-        money = 0f;
+        money = GlobalController.Instance.money;
         txt.text = money.ToString();
         meterscore = 0f;
         kmscore = 0f;
@@ -56,6 +56,7 @@ public class plane : MonoBehaviour
         {
             Destroy(other.gameObject);
             money = money + 1.0f;
+            GlobalController.Instance.money = money;
             txt.text = money.ToString();
         }
         
