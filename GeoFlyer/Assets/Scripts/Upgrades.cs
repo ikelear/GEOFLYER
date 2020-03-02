@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Upgrades : MonoBehaviour
 {
-    // Start is called before the first frame update
+    float money;
+    public Text txt;
+
     void Start()
     {
-        
+        money = GlobalController.Instance.money;
+        txt.text = money.ToString();
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         
@@ -24,5 +27,13 @@ public class Upgrades : MonoBehaviour
     public void ToMenu()
     {
         SceneManager.LoadScene("StartMenu");
+    }
+    public void Fuel()
+    {
+        money = money - 1;
+    }
+    public void Armor()
+    {
+        money = money - 1;
     }
 }
