@@ -11,8 +11,8 @@ public class GlobalController : MonoBehaviour
 
     public float playerScore = -1f;
     public bool newScore = false;
-    public int highScore1 = 0, highScore2 = 0, highScore3 = 0, highScore4 = 0, highScore5 = 0, highScore6 = 0, highScore7 = 0, highScore8 = 0, highScore9 = 0, highScore10 = 0, highScore11 = 0, highScore12 = 0, highScore13 = 0, highScore14 = 0, highScore15 = 0;
-    public List<int> localHighScores = new List<int>();
+    public float highScore1 = 0, highScore2 = 0, highScore3 = 0, highScore4 = 0, highScore5 = 0, highScore6 = 0, highScore7 = 0, highScore8 = 0, highScore9 = 0, highScore10 = 0, highScore11 = 0, highScore12 = 0, highScore13 = 0, highScore14 = 0, highScore15 = 0;
+    public List<float> localHighScores = new List<float>();
     public float money;
 
     void Awake()
@@ -37,7 +37,7 @@ public class GlobalController : MonoBehaviour
     private void Update()
     {
         //Debug.Log(newScore);
-        if (newScore == true)
+        /*if (newScore == true)
         {
             Debug.Log("NEW SCORE LOOP");
             for (int i = 0; i < localHighScores.Count; i++)
