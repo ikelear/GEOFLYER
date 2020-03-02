@@ -17,6 +17,6 @@ public class StartMenuController : MonoBehaviour
 
     public void GotoGame()
     {
-        SceneManager.LoadScene(sceneName: "TestGameScene");
+        SceneManager.LoadScene(sceneName: "SampleScene");
     }
 }
