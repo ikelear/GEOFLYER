@@ -14,6 +14,7 @@ public class GlobalController : MonoBehaviour
     public float highScore1 = 0, highScore2 = 0, highScore3 = 0, highScore4 = 0, highScore5 = 0, highScore6 = 0, highScore7 = 0, highScore8 = 0, highScore9 = 0, highScore10 = 0, highScore11 = 0, highScore12 = 0, highScore13 = 0, highScore14 = 0, highScore15 = 0;
     public List<float> localHighScores = new List<float>();
     public float money;
+    public float fuel = 1000.0f;
 
     void Awake()
     {

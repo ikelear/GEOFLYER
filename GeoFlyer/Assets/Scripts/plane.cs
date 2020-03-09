@@ -18,19 +18,30 @@ public class plane : MonoBehaviour
     float meterscore;
     public float kmscore;
     float pointIncreasePerSecond;
-
+    float fuel;
 
     private void Start()
     {
         money = GlobalController.Instance.money;
+        fuel = GlobalController.Instance.fuel;
         txt.text = money.ToString();
         meterscore = 0f;
         kmscore = 0f;
         pointIncreasePerSecond = 200.0f;
+        
     }
 
     private void Update()
     {
+        fuel = fuel -1;
+        if (fuel == 0)
+        {
+            GameObject e = Instantiate(explosion) as GameObject;
+            e.transform.position = transform.position;
+            transform.position = new Vector3(0, -20, 0);
+            explosiondetector.SetActive(false);
+            deathMenu.ToggleEndMenu(kmscore);
+        }
         if (explosiondetector.activeSelf)
         {
             meterscore += pointIncreasePerSecond * Time.deltaTime;
@@ -50,7 +61,6 @@ public class plane : MonoBehaviour
             explosiondetector.SetActive(false);
             deathMenu.ToggleEndMenu(kmscore);
 
-            //StartCoroutine(ExecuteAfterTime(3));
         }
         if(other.transform.tag == "coin")
         {
@@ -63,13 +73,5 @@ public class plane : MonoBehaviour
 
 
     }
-    //IEnumerator ExecuteAfterTime(float time)
-    //{
-    //    yield return new WaitForSeconds(time);
-    //    this.gameObject.SetActive(false);
-    //    SceneManager.LoadScene("SampleScene");
-    //}
-
-    //ctrl k to comment lots of code
-    //ctrl u to uncomment
+    
 }

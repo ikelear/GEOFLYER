@@ -7,12 +7,15 @@ using UnityEngine.SceneManagement;
 public class Upgrades : MonoBehaviour
 {
     float money;
+    float fuel;
     public Text txt;
 
     void Start()
     {
         money = GlobalController.Instance.money;
+        fuel = GlobalController.Instance.fuel;
         txt.text = money.ToString();
+
     }
 
   
@@ -30,10 +33,22 @@ public class Upgrades : MonoBehaviour
     }
     public void Fuel()
     {
-        money = money - 1;
+        if(money > 0)
+        {
+            money = money - 1;
+            fuel = fuel + 1000.0f;
+            txt.text = money.ToString();
+            GlobalController.Instance.money = money;
+            GlobalController.Instance.fuel = fuel;
+        }
     }
     public void Armor()
     {
-        money = money - 1;
+        if (money > 0)
+        {
+            money = money - 1;
+            txt.text = money.ToString();
+            GlobalController.Instance.money = money;
+        }
     }
 }

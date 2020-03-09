@@ -254,7 +254,7 @@ MonoBehaviour:
   highScore13: 0
   highScore14: 0
   highScore15: 0
-  localHighScores: 
+  localHighScores: []
   money: 0
 --- !u!1 &203255989
 GameObject:
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f17536806e82c49b02ee9e89fe766b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
+  txt: {fileID: 1727288091}
 --- !u!1 &1377524736
 GameObject:
   m_ObjectHideFlags: 0
