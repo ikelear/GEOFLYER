@@ -9,11 +9,12 @@ public class GlobalController : MonoBehaviour
 
     public static GlobalController Instance;
 
-    public float playerScore = -1f;
-    public bool newScore = false;
+
+    public bool newHighScore = false;
     public float highScore1 = 0, highScore2 = 0, highScore3 = 0, highScore4 = 0, highScore5 = 0, highScore6 = 0, highScore7 = 0, highScore8 = 0, highScore9 = 0, highScore10 = 0, highScore11 = 0, highScore12 = 0, highScore13 = 0, highScore14 = 0, highScore15 = 0;
     public List<float> localHighScores = new List<float>();
     public float money;
+    
 
     void Awake()
     {
@@ -76,6 +77,7 @@ public class GlobalController : MonoBehaviour
                 Debug.Log("OH THAT NUMBER BIG");
                 float oldScore = localHighScores[i];
                 localHighScores[i] = playerScore;
+                newHighScore = true;
 
                 for (int a = i; a < localHighScores.Count - i; a++)
                 {
@@ -83,12 +85,11 @@ public class GlobalController : MonoBehaviour
                     localHighScores[a + 1] = oldScore;
                     oldScore = olderScore;
                 }
-                //newScore = false;
+
                 break;
             }
 
 
         }
-        //newScore = false;
     }
 }

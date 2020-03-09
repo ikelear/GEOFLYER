@@ -14,7 +14,6 @@ public class TestGameController : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             score = Random.Range(0, 100);
-            GlobalController.Instance.playerScore = score;
             //GlobalController.Instance.newScore = true;
             Debug.Log("Score is: " + score);
             SceneManager.LoadScene(sceneName: "StartMenu");

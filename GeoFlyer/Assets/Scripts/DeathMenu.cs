@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class DeathMenu : MonoBehaviour
 {
     public Text scoreText;
+    public NewHighScore newHighScoreScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,14 @@ public class DeathMenu : MonoBehaviour
     {
         gameObject.SetActive(true);
         scoreText.text = ((float)Score).ToString();
+        GlobalController.Instance.NewHighScore(Score);
+        Debug.Log(GlobalController.Instance.newHighScore);
+        if (GlobalController.Instance.newHighScore == true)
+        {
+            Debug.Log("New Highscore");
+            newHighScoreScript.NewHighscore();
+            //GlobalController.Instance.newHighScore = false; 
+        }
     }
     public void Restart()
     {
