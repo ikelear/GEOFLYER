@@ -13,6 +13,7 @@ public class LeaderBoardController : MonoBehaviour
 
 
     List<float> highscores = new List<float>();
+    List<string> highscoreNames = new List<string>();
 
     private void Awake()
     {
@@ -67,6 +68,7 @@ public class LeaderBoardController : MonoBehaviour
         column3 = new List<GameObject> { A3, B3, C3, D3, E3, F3, G3, H3, I3, J3, K3, L3, M3, N3, O3 };
 
         highscores = GlobalController.Instance.localHighScores;
+        highscoreNames = GlobalController.Instance.localHighScoresNames;
 
         for (int i = 0; i < column1.Count; i++)
         {
@@ -77,6 +79,12 @@ public class LeaderBoardController : MonoBehaviour
         {
             column3[i].GetComponent<Text>().text = highscores[i].ToString("n2");
         }
+
+        for (int i = 0; i < column2.Count; i++)
+        {
+            column2[i].GetComponent<Text>().text = highscoreNames[i];
+        }
+
 
 
         

@@ -23,13 +23,12 @@ public class DeathMenu : MonoBehaviour
     {
         gameObject.SetActive(true);
         scoreText.text = ((float)Score).ToString();
-        GlobalController.Instance.NewHighScore(Score);
-        Debug.Log(GlobalController.Instance.newHighScore);
+        GlobalController.Instance.latestScore = Score;
+        GlobalController.Instance.NewHighScoreCheck(Score);
         if (GlobalController.Instance.newHighScore == true)
         {
-            Debug.Log("New Highscore");
             newHighScoreScript.NewHighscore();
-            //GlobalController.Instance.newHighScore = false; 
+            GlobalController.Instance.newHighScore = false; 
         }
     }
     public void Restart()
