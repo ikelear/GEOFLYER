@@ -20,20 +20,26 @@ public class plane : MonoBehaviour
     float pointIncreasePerSecond;
     float fuel;
 
+    public FuelBar fuelBar;
+
+
     private void Start()
     {
         money = GlobalController.Instance.money;
         fuel = GlobalController.Instance.fuel;
+       
         txt.text = money.ToString();
         meterscore = 0f;
         kmscore = 0f;
         pointIncreasePerSecond = 200.0f;
+        fuelBar.SetMaxFuel(fuel);
         
     }
 
     private void Update()
     {
-        fuel = fuel -1;
+        fuel = fuel - 1;
+        print(fuel);
         if (fuel == 0)
         {
             GameObject e = Instantiate(explosion) as GameObject;
@@ -49,6 +55,7 @@ public class plane : MonoBehaviour
             txt2.text = kmscore.ToString();
 
         }
+        fuelBar.SetFuel(fuel);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

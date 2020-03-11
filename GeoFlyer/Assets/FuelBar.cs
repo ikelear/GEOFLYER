@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FuelBar : MonoBehaviour
 {
 
-    private Transform bar;
-    // Start is called before the first frame update
-    private void Start()
-    {
-        Transform bar = transform.Find("Bar");
-        
-    }
+    public Slider slider;
 
-    public void SetSize(float sizeNormalized)
+    
+    public void SetMaxFuel(float fuel)
     {
-        bar.localScale = new Vector3(sizeNormalized, 1f);
+        slider.maxValue = fuel;
+        
+        slider.value = fuel;
+        Debug.Log(fuel);
+    }
+    public void SetFuel(float fuel)
+    {
+        slider.value = fuel;
     }
 }
