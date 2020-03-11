@@ -85,7 +85,10 @@ public class LeaderBoardController : MonoBehaviour
             column2[i].GetComponent<Text>().text = highscoreNames[i];
         }
 
-
+        for (int i = 0; i < column3.Count; i++)
+        {
+            //Debug.Log(highscores[i]);
+        }
 
         
     }

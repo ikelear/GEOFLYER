@@ -25,6 +25,13 @@ public class GlobalController : MonoBehaviour
         localHighScores = new List<float> { highScore1, highScore2, highScore3, highScore4, highScore5, highScore6, highScore7, highScore8, highScore9, highScore10, highScore11, highScore12, highScore13, highScore14, highScore15 };
         localHighScoresNames = new List<string> { name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12, name13, name14, name15 };
 
+        for (int i = 0; i < localHighScores.Count; i++)
+        {
+            string pref = (i + 1).ToString();
+            localHighScores[i] = PlayerPrefs.GetFloat(pref);
+            localHighScoresNames[i] = PlayerPrefs.GetString(pref+"name");
+        }
+
         if (Instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -34,7 +41,6 @@ public class GlobalController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
 
                 
     }
@@ -86,21 +92,27 @@ public class GlobalController : MonoBehaviour
 
                 for (int a = i; a < localHighScores.Count - i; a++)
                 {
-                    if (a != localHighScores.Count -1)
-                    {
-                        float olderScore = localHighScores[a + 1];
-                        string olderName = localHighScoresNames[a + 1];
-                        localHighScores[a + 1] = oldScore;
-                        localHighScoresNames[a + 1] = oldName;
-                        oldScore = olderScore;
-                        oldName = olderName; 
-                    }
+                    float olderScore = localHighScores[a + 1];
+                    string olderName = localHighScoresNames[a + 1];
+                    localHighScores[a + 1] = oldScore;
+                    localHighScoresNames[a + 1] = oldName;
+                    oldScore = olderScore;
+                    oldName = olderName; 
+                                                          
                 }
 
                 break;
             }
 
 
+        }
+
+        for (int i = 0; i < localHighScores.Count; i++)
+        {
+            string label = (i+1).ToString();
+            string nameLabel = (i + 1).ToString() + "name";
+            PlayerPrefs.SetFloat(label, localHighScores[i]);
+            PlayerPrefs.SetString(nameLabel, localHighScoresNames[i]);
         }
     }
 
